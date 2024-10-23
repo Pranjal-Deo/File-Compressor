@@ -1,0 +1,19 @@
+{
+  "name": "compress-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["compression", "image", "pdf", "nodejs"],
+  "author": "Pranjal",
+  "license": "ISC",
+  "description": "A Node.js app for compressing images and PDFs",
+  "dependencies": {
+    "express": "^4.21.1",
+    "multer": "^1.4.5-lts.1",
+    "pdf-lib": "^1.17.1",
+    "sharp": "^0.33.5"
+  }
+}

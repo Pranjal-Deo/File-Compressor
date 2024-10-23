@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compress Files</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      
+      <h1>Compress Files</h1>
+    </header>
+
+    <form action="/compress" method="POST" enctype="multipart/form-data">
+      <label for="file">Choose Image or PDF</label>
+      <input type="file" name="file" id="file" accept="image/*, application/pdf" required>
+
+      <label for="type">File Type:</label>
+      <select name="type" id="type" required>
+        <option value="image">Image</option>
+        <option value="pdf">PDF</option>
+      </select>
+
+      <div id="image-options" class="options">
+        <label for="imageWidth">Image Width (px):</label>
+        <input type="number" name="imageWidth" id="imageWidth" placeholder="800" value="800" min="100" required>
+
+        <label for="imageQuality">Image Quality (%):</label>
+        <input type="number" name="imageQuality" id="imageQuality" placeholder="60" value="60" min="10" max="100" required>
+      </div>
+
+      <div id="pdf-options" class="options" style="display:none;">
+        <label for="pdfSize">PDF Size (MB):</label>
+        <input type="number" name="pdfSize" id="pdfSize" placeholder="5" value="5" min="1" required>
+      </div>
+
+      <button type="submit">Compress File</button>
+    </form>
+  </div>
+
+  <script>
+    const typeSelect = document.getElementById('type');
+    const imageOptions = document.getElementById('image-options');
+    const pdfOptions = document.getElementById('pdf-options');
+
+    typeSelect.addEventListener('change', () => {
+      if (typeSelect.value === 'image') {
+        imageOptions.style.display = 'block';
+        pdfOptions.style.display = 'none';
+      } else {
+        imageOptions.style.display = 'none';
+        pdfOptions.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
